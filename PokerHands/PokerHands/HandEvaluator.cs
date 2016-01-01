@@ -1,57 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PokerHands;
-
-namespace PokerHands
+﻿namespace PokerHands
 {
     class HandEvaluator
     {
 
         // may be a clear cause for "magic numbers" - each type of winning hand should have a number code?? No, it needs to compare
         // High Card: Returns card with highest ranking card.
-        public Card HighCard(playerHand playerHand)
+        public Card HighCard(PlayerHand playerHand)
         {
-            Card highestCard = new Card(Rank 2, Suit "Clubs");21
+            Card highestCard = new Card("2", "Clubs");
             return highestCard;
         }
-        
-        //One Pair: Two cards of the same value.
-        public bool OnePair(PlayerHand playerHand)
+
+        // 1 Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
+        public bool RoyalFlush(PlayerHand playerHand)
         {
-            // returns true if there is one pair
+            // returns true if there is a Royal Flush
             return false;
         }
 
-        //Two Pairs: Two different pairs.
-        public bool TwoPair(PlayerHand playerHand)
+        // 2 Straight Flush: All cards are consecutive values of same suit.
+        public bool StraightFlush(PlayerHand playerHand)
         {
-            // returns true if there are two pairs
+            // returns true if there is a Straight Flush
             return false;
         }
 
-        //Three of a Kind: Three cards of the same value.
-        public bool ThreeOfAKind(PlayerHand playerHand)
+        // 3 Four of a Kind: Four cards of the same value.
+        public bool FourOfAKind(PlayerHand playerHand)
         {
-            // returns true if there are three of a kind
+            // returns true if there is four of a kind
             return false;
         }
 
-        // Straight: All cards are consecutive values.
+        // 4 Full House: Three of a kind and a pair.
+        public bool FullHouse(PlayerHand playerHand)
+        {
+            // returns true if there is a FullHouse
+            return false;
+        }
+
+        // 5 Flush: All cards of the same suit.
+        public bool Flush(PlayerHand playerHand)
+        {
+            // returns true if there is a Flush
+            return false;
+        }
+
+        // 6 Straight: All cards are consecutive values.
         public bool Straight(PlayerHand playerHand)
         {
             // returns true if there is a straight
             return false;
         }
 
-        /*Flush: All cards of the same suit.
-        Full House: Three of a kind and a pair.
-        Four of a Kind: Four cards of the same value.
-        Straight Flush: All cards are consecutive values of same suit.
-        Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
-        */
+        // 7 Three of a Kind: Three cards of the same value.
+        public bool ThreeOfAKind(PlayerHand playerHand)
+        {
+            // returns true if there are three of a kind
+            return false;
+        }
+
+        // 8 Two Pairs: Two different pairs.
+        public bool TwoPair(PlayerHand playerHand)
+        {
+            // returns true if there are two pairs
+            return false;
+        }
+
+        // 9 One Pair: Two cards of the same value.
+        public bool OnePair(PlayerHand playerHand)
+        {
+            // returns true if there is one pair
+            return false;
+        }
+
+       
+ 
+
+  
+  
+ 
+
+       
+   
+        
+
 
     }
 }
