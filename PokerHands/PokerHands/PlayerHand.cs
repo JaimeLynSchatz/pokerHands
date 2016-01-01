@@ -10,6 +10,6 @@ namespace PokerHands
     {
         public Card[] Hand { get; set; }
         public Card HighCard { get; set; }
-        public String BestHand { get; set; }
+        public string BestHand { get; set; }
     }
 }
