@@ -11,5 +11,7 @@ namespace PokerHands
         public Card[] Hand { get; set; }
         public Card HighCard { get; set; }
         public string BestHand { get; set; }
+
+        
     }
 }
