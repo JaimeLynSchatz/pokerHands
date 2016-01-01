@@ -8,7 +8,7 @@ namespace PokerHands
 {
     class Card
     {
-        public String Rank { get; set; }
-        public String Suit { get; set; }
+        public string Rank { get; set; }
+        public string Suit { get; set; }
     }
 }
