@@ -12,6 +12,6 @@ namespace PokerHands
         public Card HighCard { get; set; }
         public string BestHand { get; set; }
 
-        
+         
     }
 }

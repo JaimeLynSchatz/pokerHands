@@ -8,13 +8,16 @@ namespace PokerHands
 {
     class Card
     {
+        /*
+        Will get back to this idea -- blocking other ideas right now - 1/1/16
         public string Rank { get; set; }
         public string Suit { get; set; }
+        */
 
-        public Card (string Rank, string Suit)
-        {
-            this.Rank = Rank;
-            this.Suit = Suit;
-        }
+        public string FullCard { get; set; }
+        public int Rank { get; }
+
+
+
     }
 }
