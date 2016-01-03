@@ -1,8 +1,16 @@
-﻿namespace PokerHands
+﻿using System;
+
+namespace PokerHands
 {
     class HandEvaluator
     {
 
+        // returns true if sorted successfully
+        public bool Sort(PlayerHand playerHand)
+        {
+            // I need the rank here -- something's off with the way I've set up Card
+            return true;
+        }
         // may be a clear cause for "magic numbers" - each type of winning hand should have a number code?? No, it needs to compare
         // High Card: Returns card with highest ranking card.
         public Card HighCard(PlayerHand playerHand)

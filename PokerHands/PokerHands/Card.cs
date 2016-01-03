@@ -54,18 +54,9 @@ namespace PokerHands
 
             }
 
-            if (rankValue >= 2 && rankValue <= 10)
-            {
-                // do something awesome
-            }
-            else  // I think I want to nest a switch statement in an if/else statement and that just seems wrong
-            {
-                // do something even awesomer
-            }
+            this.Rank = rankValue;
             
         }
-
-
 
     }
 }
