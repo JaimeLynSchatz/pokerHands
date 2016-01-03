@@ -8,10 +8,9 @@ namespace PokerHands
 {
     class PlayerHand
     {
-        public Card[] Hand { get; set; }
+        public List<Card> Hand { get; set; }
         public Card HighCard { get; set; }
         public string BestHand { get; set; }
-
-         
+        
     }
 }

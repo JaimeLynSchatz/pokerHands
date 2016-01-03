@@ -1,4 +1,5 @@
 ﻿using System;
+using PlayerHand;
 
 namespace PokerHands
 {
@@ -9,6 +10,9 @@ namespace PokerHands
         public bool Sort(PlayerHand playerHand)
         {
             // I need the rank here -- something's off with the way I've set up Card
+            // I need to set it up as a List<>
+            playerHand.Hand.Rank.Sort; // this isn't working
+
             return true;
         }
         // may be a clear cause for "magic numbers" - each type of winning hand should have a number code?? No, it needs to compare
