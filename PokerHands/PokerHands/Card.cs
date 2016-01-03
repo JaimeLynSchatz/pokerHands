@@ -30,21 +30,25 @@ namespace PokerHands
             {
                 case 'J':
                     // Jack
+                    rankValue = 11;
                     break;
 
                 case 'Q':
                     // Queen
+                    rankValue = 12;
                     break;
 
                 case 'K':
                     // King
+                    rankValue = 13;
                     break;
 
                 case 'A':
                     // Ace
+                    rankValue = 14;
                     break;
 
-                default:
+                default: // we did the parameter checking above so the only thing left can be a number card
                     // it's a basic number card
                     break;
 
