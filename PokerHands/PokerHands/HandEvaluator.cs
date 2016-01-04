@@ -6,12 +6,30 @@ namespace PokerHands
     class HandEvaluator
     {
 
+        public int CompareCards(Card x, Card y)  // take two cards, convert rank to int and compare
+        {
+            if ((x == null && y == null) || (x.Rank == y.Rank))
+            {
+                return 0; // either they're both null or both equal
+            }
+
+            else if (x.Rank > y.Rank)
+            {
+                return 1;
+            }
+
+            else // y.Rank > x.Rank is the only other option
+            {
+                return -1;
+            }
+        }
+        
         // returns true if sorted successfully
         public bool Sort(PlayerHand playerHand)
         {
             // I need the rank here -- something's off with the way I've set up Card
             // I need to set it up as a List<>
-            playerHand.Hand.Rank.Sort; // this isn't working
+            playerHand.Hand.Sort(CompareCards);
 
             return true;
         }
@@ -19,7 +37,7 @@ namespace PokerHands
         // High Card: Returns card with highest ranking card.
         public Card HighCard(PlayerHand playerHand)
         {
-            Card highestCard = new Card("2", "Clubs");
+            Card highestCard = new Card("2C");
             return highestCard;
         }
 
