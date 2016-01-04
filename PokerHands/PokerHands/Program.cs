@@ -10,7 +10,8 @@ namespace PokerHands
             // gotta love switching machines without having your Visual Studio-git integration correct!
 
             PlayerHand player1 = new PlayerHand();
-            player1.Hand = ["AH", "2H", "6C", "9D", "KH"];
+            // TODO: change to reflect new List<> type
+            // player1.Hand = ["AH", "2H", "6C", "9D", "KH"];
         }
     }
 }

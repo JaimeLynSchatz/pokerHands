@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace PokerHands
 {
-    class Card
+    public class Card
     {
         public string FullCard { get; set; }
         public int Rank { get; set; }
         public string Suit { get; set; }
 
-        public Card(string FullCard)
+        public Card(string FullCard) //?? says "Card is inaccessible due to its protection level. It's public!! ???
         {
-            // do some parameter checking here so your switch is easier?? Fail fast
+            // TODO: write parameter checking here - simplifies switch and fail fast if bad parameters
 
             this.FullCard = FullCard;
 
-            // what if the whole thing is a switch statement with the default being a number rank?
             switch (FullCard[0])
             {
                 case 'J':
