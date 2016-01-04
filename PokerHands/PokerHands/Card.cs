@@ -17,17 +17,17 @@ namespace PokerHands
             // TODO: write parameter checking here - simplifies switch and fail fast if bad parameters
             if (FullCard == null)
             {
-                throw System.ArgumentNullException; // ??? Why doesn't this work in this context?
+                // throw System.ArgumentNullException; // ??? Why doesn't this work in this context?
             }
         
-            else if (FullCard.Length != 2)
+            else if (FullCard.Length != 2) // breaks for 10s -- need new pattern
             {
-                throw System.ArgumentException;
+                // throw System.ArgumentException;
             }
 
             else if (false) // TODO: I need a regex here for anything that doesn't fit the "R(ank)S(suit)" pattern
             {
-                throw System.ArgumentException;
+                // throw System.ArgumentException;
             }
 
             this.FullCard = FullCard;

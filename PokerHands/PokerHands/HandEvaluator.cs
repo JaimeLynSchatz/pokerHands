@@ -6,7 +6,7 @@ namespace PokerHands
     class HandEvaluator
     {
 
-        public int CompareCards(Card x, Card y)  // take two cards, convert rank to int and compare
+        public int CompareCards(Card x, Card y)  // take two cards, compare Rank - return 1 if x > y, 0 if x == y, -1 if x < y
         {
             if ((x == null && y == null) || (x.Rank == y.Rank))
             {
