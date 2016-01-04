@@ -12,9 +12,23 @@ namespace PokerHands
         public int Rank { get; set; }
         public string Suit { get; set; }
 
-        public Card(string FullCard) //?? says "Card is inaccessible due to its protection level. It's public!! ???
+        public Card(string FullCard)
         {
             // TODO: write parameter checking here - simplifies switch and fail fast if bad parameters
+            if (FullCard == null)
+            {
+                throw System.ArgumentNullException; // ??? Why doesn't this work in this context?
+            }
+        
+            else if (FullCard.Length != 2)
+            {
+                throw System.ArgumentException;
+            }
+
+            else if (false) // TODO: I need a regex here for anything that doesn't fit the "R(ank)S(suit)" pattern
+            {
+                throw System.ArgumentException;
+            }
 
             this.FullCard = FullCard;
 
