@@ -5,13 +5,18 @@ namespace PokerHands
 {
     enum HandStrength
     {
-        HighCard,
-        Pair,
+        StraightFlush,  // same suit, consecutively ranked cards
+        FourOfAKind,
+        FullHouse,      // a set of three and a pair
+        Flush,          // same suit, ranks not consecutive
+        Straight,       // different suits, consecutively ranked cards
         ThreeOfAKind,
-        TwoPair
+        TwoPair,
+        OnePair,
+        HighCard
     }
 
-    // pick up here and set up the enum, then build the functions to return true/false if there's a match
+    // build the functions to return true/false if there's a match
     // in the even of a tie, go to the high card.
 
     class HandEvaluator
@@ -20,19 +25,13 @@ namespace PokerHands
         public int CompareCards(Card x, Card y)  // take two cards, compare Rank - return 1 if x > y, 0 if x == y, -1 if x < y
         {
             if ((x == null && y == null) || (x.Rank == y.Rank))
-            {
-                return 0; // either they're both null or both equal
-            }
+                { return 0; }// either they're both null or both equal
 
             else if (x.Rank > y.Rank)
-            {
-                return 1;
-            }
+                { return 1; }
 
             else // y.Rank > x.Rank is the only other option
-            {
-                return -1;
-            }
+                { return -1; }
         }
         
         // returns true if sorted successfully

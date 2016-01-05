@@ -27,8 +27,10 @@ namespace PokerHandsTests
             fiveCards.Add(new Card(Rank.Three, Suit.Clubs));
 
             PlayerHand handOfFive = new PlayerHand(fiveCards);
-
+            
+            // Initial test to check List<> creation was correct
             //Assert.AreEqual(5, fiveCards.Count);
+
             Assert.AreEqual("{2C,KD,QS,3D,3C}", handOfFive.ToString());
 
         }
