@@ -8,17 +8,28 @@ namespace PokerHandsTests
     public class CardTest
     {
         [TestMethod]
-        public void CanCreateACard()
+        public void ShortCardNames()
         {
-            // Arrange
-            Card testAceOfHearts = new Card("AH");
-            //Card test2OfDiamonds = new Card("2D");
+            Card tenHearts = new Card(Rank.Ten, Suit.Hearts);
+            String TH = tenHearts.ToString();
+            Assert.AreEqual("TH", TH);
 
-            // Act
-            // same as Arrange
+            Assert.AreEqual("TS", new Card(Rank.Ten, Suit.Spades).ToString());
+            Assert.AreEqual("2S", new Card(Rank.Two, Suit.Spades).ToString());
+            Assert.AreEqual("KC", new Card(Rank.King, Suit.Clubs).ToString());
+        }
 
-            // Assert
-            Assert.IsNotNull(testAceOfHearts); 
+        [TestMethod]
+        public void CanICompareCards()
+        {
+            Card twoD = new Card(Rank.Two, Suit.Diamonds);
+            Card twoC = new Card(Rank.Two, Suit.Clubs);
+            Card threeD = new Card(Rank.Three, Suit.Diamonds);
+
+            Assert.AreEqual(twoD.Suit, threeD.Suit);
+            Assert.AreEqual(twoD.Rank, twoC.Rank);
+            Assert.AreNotEqual(twoD.Suit, twoC.Suit);
+            Assert.AreNotEqual(twoD.Rank, threeD.Rank);
         }
     }
 }

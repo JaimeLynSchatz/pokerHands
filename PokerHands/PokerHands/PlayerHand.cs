@@ -9,14 +9,27 @@ namespace PokerHands
 {
     public class PlayerHand
     {
-        public List<Card> Hand { get; set; }
-        public Card HighCard { get; set; }
-        public string BestHand { get; set; }
+        public List<Card> Cards { get; set; }
 
+        public PlayerHand(List<Card> hand) 
+            : this()
+        {
+            foreach (Card c in hand)
+                Add(c);
+        }
         public PlayerHand()
         {
-            this.Hand = Dealer.Deal(5);
+            Cards = new List<Card>();
         }
-        
+
+        public void Add(Card c)
+        {
+            Cards.Add(c);
+        }
+
+        public override string ToString()
+        {
+            return "{" + String.Join(",", (object[])Cards.ToArray()) + "}";
+        }
     }
 }

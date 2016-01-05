@@ -16,16 +16,8 @@ namespace PokerHands
             // keep track of how many cards there are left in the deck
             // returns a Hand of cards in a List<>
 
-            List<Card> newPlayerHand = new List<Card>();
-            Card card1 = new Card("AH");
-            newPlayerHand.Add(card1);
+            return null;
 
-            newPlayerHand.Add(new Card("2D"));
-            newPlayerHand.Add(new Card("5C"));
-            newPlayerHand.Add(new Card("2C"));
-            newPlayerHand.Add(new Card("9H"));
-
-            return newPlayerHand;
         }
 
 

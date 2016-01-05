@@ -3,6 +3,17 @@
 
 namespace PokerHands
 {
+    enum HandStrength
+    {
+        HighCard,
+        Pair,
+        ThreeOfAKind,
+        TwoPair
+    }
+
+    // pick up here and set up the enum, then build the functions to return true/false if there's a match
+    // in the even of a tie, go to the high card.
+
     class HandEvaluator
     {
 
@@ -29,7 +40,7 @@ namespace PokerHands
         {
             // I need the rank here -- something's off with the way I've set up Card
             // I need to set it up as a List<>
-            playerHand.Hand.Sort(CompareCards);
+            //playerHand.Hand.Sort(CompareCards);
 
             return true;
         }
@@ -37,8 +48,7 @@ namespace PokerHands
         // High Card: Returns card with highest ranking card.
         public Card HighCard(PlayerHand playerHand)
         {
-            Card highestCard = new Card("2C");
-            return highestCard;
+            return new Card(Rank.Two, Suit.Clubs);
         }
 
         // 1 Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
