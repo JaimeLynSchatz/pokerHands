@@ -86,7 +86,11 @@ namespace PokerHands
         public static bool StraightFlush(PlayerHand playerHand)
         {
             // returns true if there is a Straight Flush
-            return false;
+            if (Flush(playerHand))
+            {
+                // run straight test
+            }
+            else return false;
         }
 
         // 3 Four of a Kind: Four cards of the same value.
