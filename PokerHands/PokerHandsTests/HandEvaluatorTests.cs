@@ -25,5 +25,40 @@ namespace PokerHandsTests
             // Assert
             Assert.AreEqual((new Card(Rank.Ace, Suit.Diamonds)).Rank, highCard.Rank);
         }
+
+        [TestMethod]
+        public void CanDetermineIfHandIsNotAFlush()
+        {
+            // Arrange
+            PlayerHand player1 = new PlayerHand();
+            player1.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
+            player1.Cards.Add(new Card(Rank.Eight, Suit.Clubs));
+            player1.Cards.Add(new Card(Rank.Jack, Suit.Hearts));
+            player1.Cards.Add(new Card(Rank.Nine, Suit.Spades));
+            player1.Cards.Add(new Card(Rank.Two, Suit.Clubs));
+            
+            //Act
+
+
+            // Assert
+            Assert.IsFalse(HandEvaluator.Flush(player1));
+        }
+
+        [TestMethod]
+        public void CanDetermineIfHandIsAFlush()
+        {
+            // Arrange
+            PlayerHand player2 = new PlayerHand();
+            player2.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
+            player2.Cards.Add(new Card(Rank.Eight, Suit.Diamonds));
+            player2.Cards.Add(new Card(Rank.Jack, Suit.Diamonds));
+            player2.Cards.Add(new Card(Rank.Nine, Suit.Diamonds));
+            player2.Cards.Add(new Card(Rank.Two, Suit.Diamonds));
+
+            // Act
+
+            // Assert
+            Assert.IsTrue(HandEvaluator.Flush(player2));
+        }
     }
 }
