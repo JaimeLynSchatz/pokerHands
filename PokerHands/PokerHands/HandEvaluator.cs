@@ -70,8 +70,15 @@ namespace PokerHands
         // 1 Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
         public static bool RoyalFlush(PlayerHand playerHand)
         {
-            // returns true if there is a Royal Flush
-            return false;
+            if (Flush(playerHand))
+            {
+                foreach (Card c in playerHand.Cards)
+                {
+                    // need a consecutive values and/or a royal 
+                }
+            }
+
+                return false;
         }
 
         // 2 Straight Flush: All cards are consecutive values of same suit.
@@ -98,7 +105,26 @@ namespace PokerHands
         // 5 Flush: All cards of the same suit.
         public static bool Flush(PlayerHand playerHand)
         {
-            // returns true if there is a Flush
+            if (playerHand.Cards[0].Suit == playerHand.Cards[1].Suit)
+            {
+                Suit handSuit = playerHand.Cards[0].Suit;
+                foreach (Card c in playerHand.Cards)
+                {
+                    if (c.Suit != handSuit)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             return false;
         }
 
