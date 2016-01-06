@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PokerHands
 {
-    public enum Suit
+    public enum Suit : int
     {
         Clubs, Diamonds, Hearts, Spades
     }
 
-    public enum Rank
+    public enum Rank : int
     {
         Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace
     }

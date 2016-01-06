@@ -7,6 +7,21 @@ namespace PokerHandsTests
     [TestClass]
     public class HandEvaluatorTests
     {
+
+        [TestMethod]
+        public void CanSortCardsByRank()
+        {
+            PlayerHand player1 = new PlayerHand();
+            player1.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
+            player1.Cards.Add(new Card(Rank.Eight, Suit.Clubs));
+            player1.Cards.Add(new Card(Rank.Jack, Suit.Hearts));
+            player1.Cards.Add(new Card(Rank.Nine, Suit.Spades));
+            player1.Cards.Add(new Card(Rank.Two, Suit.Clubs));
+
+            HandEvaluator.SortByRank(player1);
+
+            Assert.AreEqual("{2C,8C,9S,JH,AD}", player1.ToString());
+        }
         [TestMethod]
         public void HighCardTest()
         {

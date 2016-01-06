@@ -22,13 +22,14 @@ namespace PokerHands
 
     public static class HandEvaluator
     {
-        /*
+        
+
         public static int CompareCards(Card x, Card y)  // take two cards, compare Rank - return 1 if x > y, 0 if x == y, -1 if x < y
         {
             if ((x == null && y == null) || (x.Rank == y.Rank))
                 { return 0; }// either they're both null or both equal
 
-            else if (x.Rank > y.Rank)
+            else if (x.Rank > y.Rank) // need to see how to cast this
                 { return 1; }
 
             else // y.Rank > x.Rank is the only other option
@@ -38,15 +39,15 @@ namespace PokerHands
 
         // returns true if sorted successfully
         
-        public static bool Sort(PlayerHand playerHand)
+        public static bool SortByRank(PlayerHand playerHand)
         {
             // I need the rank here -- something's off with the way I've set up Card
             // I need to set it up as a List<>
-            //playerHand.Hand.Sort(CompareCards);
+            playerHand.Cards.Sort(CompareCards);
 
             return true;
         }
-        */
+        
 
         // High Card: Returns card with highest ranking card.
         public static Card HighCard(PlayerHand playerHand)
@@ -128,10 +129,10 @@ namespace PokerHands
             return false;
         }
 
-        // 6 Straight: All cards are consecutive values.
+        // 6 Straight: Returns true if all cards are consecutive values.
         public static bool Straight(PlayerHand playerHand)
         {
-            // returns true if there is a straight
+            
             return false;
         }
 
