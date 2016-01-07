@@ -89,6 +89,7 @@ namespace PokerHands
             if (Flush(playerHand))
             {
                 // run straight test
+                return true;
             }
             else return false;
         }
@@ -136,8 +137,16 @@ namespace PokerHands
         // 6 Straight: Returns true if all cards are consecutive values.
         public static bool Straight(PlayerHand playerHand)
         {
-            
-            return false;
+            SortByRank(playerHand);
+            for (int i = 0; i < playerHand.Cards.Count-1; i++)
+            {
+                if ((playerHand.Cards[i].Rank + 1) != playerHand.Cards[i + 1].Rank)
+                {
+                    return false;
+                }
+            }
+      
+            return true;
         }
 
         // 7 Three of a Kind: Three cards of the same value.

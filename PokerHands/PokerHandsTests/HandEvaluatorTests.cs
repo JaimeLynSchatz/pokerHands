@@ -75,5 +75,20 @@ namespace PokerHandsTests
             // Assert
             Assert.IsTrue(HandEvaluator.Flush(player2));
         }
+
+        [TestMethod]
+        public void CanDetermineIfHandIsAStraight()
+        {
+            // Arrange
+            PlayerHand straightHand = new PlayerHand();
+            straightHand.Cards.Add(new Card(Rank.Three, Suit.Diamonds));
+            straightHand.Cards.Add(new Card(Rank.Six, Suit.Diamonds));
+            straightHand.Cards.Add(new Card(Rank.Five, Suit.Diamonds));
+            straightHand.Cards.Add(new Card(Rank.Four, Suit.Diamonds));
+            straightHand.Cards.Add(new Card(Rank.Two, Suit.Diamonds));
+
+            // Assert
+            Assert.IsTrue(HandEvaluator.Straight(straightHand));
+        }
     }
 }
