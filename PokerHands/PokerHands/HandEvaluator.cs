@@ -71,12 +71,9 @@ namespace PokerHands
         // 1 Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
         public static bool RoyalFlush(PlayerHand playerHand)
         {
-            if (Flush(playerHand))
+            if (Flush(playerHand) && Straight(playerHand) && (playerHand.Cards[0].Rank) == Rank.Ten) 
             {
-                foreach (Card c in playerHand.Cards)
-                {
-                    // need a consecutive values and/or a royal 
-                }
+                return true;
             }
 
                 return false;
