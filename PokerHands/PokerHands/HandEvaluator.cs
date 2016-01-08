@@ -37,8 +37,7 @@ namespace PokerHands
         }
         
 
-        // returns true if sorted successfully
-        
+        // returns true if sorted successfully 
         public static bool SortByRank(PlayerHand playerHand)
         {
             // I need the rank here -- something's off with the way I've set up Card
@@ -68,7 +67,7 @@ namespace PokerHands
             return highCard;
         }
 
-        // 1 Royal Flush: Ten, Jack, Queen, King, Ace, in same suit.
+        // 1 Royal Flush: Returns true if hand is Ten, Jack, Queen, King, Ace, in same suit.
         public static bool RoyalFlush(PlayerHand playerHand)
         {
             if (Flush(playerHand) && Straight(playerHand) && (playerHand.Cards[0].Rank) == Rank.Ten) 
@@ -79,10 +78,9 @@ namespace PokerHands
                 return false;
         }
 
-        // 2 Straight Flush: All cards are consecutive values of same suit.
+        // 2 Straight Flush: Returns true if all cards are consecutive values of same suit.
         public static bool StraightFlush(PlayerHand playerHand)
         {
-            // returns true if there is a Straight Flush
             if (Flush(playerHand) && Straight(playerHand))
             {
                 return true;
@@ -156,6 +154,10 @@ namespace PokerHands
         public static bool TwoPair(PlayerHand playerHand)
         {
             // returns true if there are two pairs
+            if (OnePair(playerHand) && OnePair(playerHand[snipped from first pair]))
+            {
+                return true;
+            }
             return false;
         }
 
@@ -163,6 +165,7 @@ namespace PokerHands
         public static bool OnePair(PlayerHand playerHand)
         {
             // returns true if there is one pair
+
             return false;
         }
 
