@@ -23,6 +23,7 @@ namespace PokerHandsTests
             Assert.AreEqual("{2C,8C,9S,JH,AD}", player1.ToString());
         }
         [TestMethod]
+
         public void HighCardTest()
         {
             // Arrange
@@ -89,6 +90,21 @@ namespace PokerHandsTests
 
             // Assert
             Assert.IsTrue(HandEvaluator.Straight(straightHand));
+        }
+
+        [TestMethod]
+        public void CanDetermineIfHandIsARoyalFlush()
+        {
+            PlayerHand royalFlushHand = new PlayerHand();
+            royalFlushHand.Cards.Add(new Card(Rank.Ace, Suit.Clubs));
+            royalFlushHand.Cards.Add(new Card(Rank.Ten, Suit.Clubs));
+            royalFlushHand.Cards.Add(new Card(Rank.Queen, Suit.Clubs));
+            royalFlushHand.Cards.Add(new Card(Rank.Jack, Suit.Clubs));
+            royalFlushHand.Cards.Add(new Card(Rank.King, Suit.Clubs));
+
+            HandEvaluator.SortByRank(royalFlushHand);
+
+            Assert.IsTrue(HandEvaluator.RoyalFlush(royalFlushHand));
         }
     }
 }
