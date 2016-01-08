@@ -106,5 +106,20 @@ namespace PokerHandsTests
 
             Assert.IsTrue(HandEvaluator.RoyalFlush(royalFlushHand));
         }
+
+        [TestMethod]
+        public void CanDetermineIfHandIsAStraightFlush()
+        {
+            PlayerHand straightFlushHand = new PlayerHand();
+            straightFlushHand.Cards.Add(new Card(Rank.Five, Suit.Hearts));
+            straightFlushHand.Cards.Add(new Card(Rank.Four, Suit.Hearts));
+            straightFlushHand.Cards.Add(new Card(Rank.Two, Suit.Hearts));
+            straightFlushHand.Cards.Add(new Card(Rank.Three, Suit.Hearts));
+            straightFlushHand.Cards.Add(new Card(Rank.Six, Suit.Hearts));
+
+            HandEvaluator.SortByRank(straightFlushHand);
+
+            Assert.IsTrue(HandEvaluator.StraightFlush(straightFlushHand));
+        }
     }
 }

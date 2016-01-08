@@ -83,9 +83,8 @@ namespace PokerHands
         public static bool StraightFlush(PlayerHand playerHand)
         {
             // returns true if there is a Straight Flush
-            if (Flush(playerHand))
+            if (Flush(playerHand) && Straight(playerHand))
             {
-                // run straight test
                 return true;
             }
             else return false;
