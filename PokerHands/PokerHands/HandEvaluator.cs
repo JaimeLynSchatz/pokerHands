@@ -153,10 +153,12 @@ namespace PokerHands
         // 8 Two Pairs: Two different pairs.
         public static bool TwoPair(PlayerHand playerHand)
         {
+            
             // returns true if there are two pairs
             if (OnePair(playerHand) && OnePair(playerHand[snipped from first pair]))
             {
                 return true;
+                 
             }
             return false;
         }
@@ -164,8 +166,16 @@ namespace PokerHands
         // 9 One Pair: Two cards of the same value.
         public static bool OnePair(PlayerHand playerHand)
         {
-            // returns true if there is one pair
+            // returns true if there is one pair -- I'd like to perhaps capture where the pair is ... maybe in two pair...
+            SortByRank(playerHand); // TODO - bring this up to the top DRY DRY DRY
 
+            for (int i = 0; i < playerHand.Cards.Count-1; i++)
+            {
+                if (playerHand.Cards[i] == playerHand.Cards[i + 1])
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
