@@ -17,6 +17,10 @@ namespace PokerHands
         HighCard
     }
 
+    struct RankCount
+    {
+        
+    }
     // build the functions to return true/false if there's a match
     // in the even of a tie, go to the high card.
 
@@ -46,7 +50,19 @@ namespace PokerHands
 
             return true;
         }
-        
+
+        // returns the number of matching cards
+        public static RankCount GetMatchingRanks(PlayerHand playerHand)
+        {
+            
+            for (int i = 0; i < playerHand.Cards.Count - 1; i++)
+            {
+                if (playerHand.Cards[i] == playerHand.Cards[i + 1])
+                {
+                    return true;
+                }
+            }
+        }
 
         // High Card: Returns card with highest ranking card.
         public static Card HighCard(PlayerHand playerHand)
