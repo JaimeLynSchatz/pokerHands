@@ -17,17 +17,17 @@ namespace PokerHands
         HighCard
     }
 
-    struct RankCount
-    {
-        
-    }
     // build the functions to return true/false if there's a match
     // in the even of a tie, go to the high card.
 
     public static class HandEvaluator
     {
-        
-
+    
+        private Dictionary<Rank, int> rankCount = new Dictionary<Rank, int>();
+        {
+            // will fill when evaluating
+        }
+    
         public static int CompareCards(Card x, Card y)  // take two cards, compare Rank - return 1 if x > y, 0 if x == y, -1 if x < y
         {
             if ((x == null && y == null) || (x.Rank == y.Rank))
@@ -52,16 +52,22 @@ namespace PokerHands
         }
 
         // returns the number of matching cards
-        public static RankCount GetMatchingRanks(PlayerHand playerHand)
+        public static rankCount CountRanks(PlayerHand playerHand)
         {
             
-            for (int i = 0; i < playerHand.Cards.Count - 1; i++)
+            for (int i = 0; i < playerHand.Cards.Count; i++)
             {
-                if (playerHand.Cards[i] == playerHand.Cards[i + 1])
+                if (rankCount.ContainsKey[playerHand.Cards[i].Rank])
                 {
-                    return true;
+                    rankCount[playerHand.Cards[i].Rank] += 1;
+                }
+                else
+                {
+                    rankCount[playerHand.Cards[i].Rank] = 1;
                 }
             }
+            
+            return rankCount;
         }
 
         // High Card: Returns card with highest ranking card.
@@ -104,18 +110,30 @@ namespace PokerHands
             else return false;
         }
 
-        // 3 Four of a Kind: Four cards of the same value.
+        // 3 Four of a Kind: Returns true is the hand has four cards of the same value.
         public static bool FourOfAKind(PlayerHand playerHand)
         {
-            // returns true if there is four of a kind
-            return false;
+            if (rankCount.ContainsValue(4))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        // 4 Full House: Three of a kind and a pair.
+        // 4 Full House: Returns true if there are three of a kind and a pair.
         public static bool FullHouse(PlayerHand playerHand)
         {
-            // returns true if there is a FullHouse
-            return false;
+            if (rankCount.ContainsValue(3) && rankCount.ContainsValue(2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         // 5 Flush: All cards of the same suit.
@@ -159,24 +177,33 @@ namespace PokerHands
             return true;
         }
 
-        // 7 Three of a Kind: Three cards of the same value.
+        // 7 Three of a Kind: Returns true if there are three cards of the same value.
         public static bool ThreeOfAKind(PlayerHand playerHand)
         {
-            // returns true if there are three of a kind
-            return false;
+            if (rankCount.ContainsValue(3))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        // 8 Two Pairs: Two different pairs.
+        // 8 Two Pairs: Returns true if there are two different pairs.
         public static bool TwoPair(PlayerHand playerHand)
         {
             
-            // returns true if there are two pairs
-            if (OnePair(playerHand) && OnePair(playerHand[snipped from first pair]))
+            // Do I need to count how many keys lead to the value 2? 
+            // if there are three ranks counted, and one is a pair, then there must be another pair
+            if (rankCount.Count == 3 && rankCount.ContainsValue(2))
             {
                 return true;
-                 
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         // 9 One Pair: Two cards of the same value.
@@ -185,27 +212,14 @@ namespace PokerHands
             // returns true if there is one pair -- I'd like to perhaps capture where the pair is ... maybe in two pair...
             SortByRank(playerHand); // TODO - bring this up to the top DRY DRY DRY
 
-            for (int i = 0; i < playerHand.Cards.Count-1; i++)
+            if (rankCount.ContainsValue(2))
             {
-                if (playerHand.Cards[i] == playerHand.Cards[i + 1])
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
-
-       
- 
-
-  
-  
- 
-
-       
-   
-        
-
-
     }
 }
