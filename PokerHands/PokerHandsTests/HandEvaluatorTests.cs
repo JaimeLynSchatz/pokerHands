@@ -11,7 +11,7 @@ namespace PokerHandsTests
 
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
-        public static void MyClassInitialize(TestContext testContext) { 
+        public static void HandEvaluatorTestsInitialize(TestContext testContext) { 
             
             // A basic hand used for tests that don't require a special hand
             PlayerHand basicHand = new PlayerHand();
@@ -20,7 +20,7 @@ namespace PokerHandsTests
             basicHand.Cards.Add(new Card(Rank.Jack, Suit.Hearts));
             basicHand.Cards.Add(new Card(Rank.Nine, Suit.Spades));
             basicHand.Cards.Add(new Card(Rank.Two, Suit.Clubs));
-            string basicHandStringSorted = "{2C,8C,9S,JH,AD}"
+            string basicHandStringSorted = "{2C,8C,9S,JH,AD}";
             
             PlayerHand aceOfDiamondHighCard = new PlayerHand();
             aceOfDiamondHighCard.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
@@ -56,8 +56,6 @@ namespace PokerHandsTests
             straightFlushHand.Cards.Add(new Card(Rank.Two, Suit.Hearts));
             straightFlushHand.Cards.Add(new Card(Rank.Three, Suit.Hearts));
             straightFlushHand.Cards.Add(new Card(Rank.Six, Suit.Hearts));
-
-            
         }
         //
         // Use ClassCleanup to run code after all tests in a class have run
