@@ -9,8 +9,8 @@ namespace PokerHandsTests
     public class HandEvaluatorTests
     {
 
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
+        //Use ClassInitialize to run code before running the first test  in the class
+        [ClassInitialize()] // tried with and without the parens - not being run
         public static void HandEvaluatorTestsInitialize(TestContext testContext) { 
             
             // A basic hand used for tests that don't require a special hand
