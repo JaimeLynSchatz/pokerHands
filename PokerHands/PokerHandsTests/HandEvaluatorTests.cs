@@ -134,13 +134,10 @@ namespace PokerHandsTests
             player1.Cards.Add(new Card(Rank.Two, Suit.Clubs));
 
             Dictionary<Rank, int> actualRanks = new Dictionary<Rank, int>();
-             
-               
 
-                        
-
-            Assert.IsTrue()
-
+            actualRanks = HandEvaluator.CountRanks(player1);
+            Assert.IsTrue(actualRanks.ContainsKey(Rank.Ace) && actualRanks.ContainsValue(2));
+            // need a better way to evaluate what's coming out of CountRanks
         }
     }
 }
