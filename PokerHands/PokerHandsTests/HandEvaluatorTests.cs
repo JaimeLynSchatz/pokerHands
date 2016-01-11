@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PokerHands;
+using System.Collections.Generic;
 
 namespace PokerHandsTests
 {
@@ -120,6 +121,26 @@ namespace PokerHandsTests
             HandEvaluator.SortByRank(straightFlushHand);
 
             Assert.IsTrue(HandEvaluator.StraightFlush(straightFlushHand));
+        }
+
+        [TestMethod]
+        public void CanCountRanksInAHand()
+        {
+            PlayerHand player1 = new PlayerHand();
+            player1.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
+            player1.Cards.Add(new Card(Rank.Eight, Suit.Clubs));
+            player1.Cards.Add(new Card(Rank.Ace, Suit.Hearts));
+            player1.Cards.Add(new Card(Rank.Nine, Suit.Spades));
+            player1.Cards.Add(new Card(Rank.Two, Suit.Clubs));
+
+            Dictionary<Rank, int> actualRanks = new Dictionary<Rank, int>();
+             
+               
+
+                        
+
+            Assert.IsTrue()
+
         }
     }
 }

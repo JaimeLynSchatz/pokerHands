@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 // Using rules round at: http://www.pokerhands.com/poker_hand_tie_rules.html
@@ -23,10 +24,7 @@ namespace PokerHands
     public static class HandEvaluator
     {
     
-        private Dictionary<Rank, int> rankCount = new Dictionary<Rank, int>();
-        {
-            // will fill when evaluating
-        }
+        private static Dictionary<Rank, int> rankCount = new Dictionary<Rank, int>();
     
         public static int CompareCards(Card x, Card y)  // take two cards, compare Rank - return 1 if x > y, 0 if x == y, -1 if x < y
         {
@@ -52,18 +50,19 @@ namespace PokerHands
         }
 
         // returns the number of matching cards
-        public static rankCount CountRanks(PlayerHand playerHand)
+        public static Dictionary<Rank, int> CountRanks(PlayerHand playerHand)
         {
             
             for (int i = 0; i < playerHand.Cards.Count; i++)
             {
-                if (rankCount.ContainsKey[playerHand.Cards[i].Rank])
+                Rank cardRank = playerHand.Cards[i].Rank;
+                if (rankCount.ContainsKey(cardRank))
                 {
-                    rankCount[playerHand.Cards[i].Rank] += 1;
+                    rankCount[cardRank] += 1;
                 }
                 else
                 {
-                    rankCount[playerHand.Cards[i].Rank] = 1;
+                    rankCount[cardRank] = 1;
                 }
             }
             
