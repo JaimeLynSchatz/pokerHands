@@ -5,8 +5,9 @@ using System.Linq;
 // Using rules round at: http://www.pokerhands.com/poker_hand_tie_rules.html
 namespace PokerHands
 {
-    enum HandStrength
+    public enum HandStrength
     {
+        RoyalFlush,     // same suit, consecutively ranked, 10-Ace
         StraightFlush,  // same suit, consecutively ranked cards
         FourOfAKind,
         FullHouse,      // a set of three and a pair
@@ -38,6 +39,11 @@ namespace PokerHands
                 { return -1; }
         }
         
+        public static HandStrength evaluateHand(PlayerHand playerHand)
+        {
+            HandStrength strength = new HandStrength();
+            return strength;
+        }
 
         // returns a sorted copy of the hand passed in 
         public static PlayerHand SortByRank(PlayerHand playerHand)
@@ -92,6 +98,7 @@ namespace PokerHands
         {
             if (Flush(playerHand) && Straight(playerHand) && (playerHand.Cards[0].Rank) == Rank.Ten) 
             {
+                // do we assign the HandStrength enum value here?
                 return true;
             }
 
