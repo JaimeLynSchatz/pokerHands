@@ -9,48 +9,49 @@ namespace PokerHandsTests
     public class HandEvaluatorTests
     {
 
+        static private string basicHandStringSorted = "{2C,8C,9S,JH,AD}";
+        static private PlayerHand basicHand = new PlayerHand();
+        static private PlayerHand aceOfDiamondHighCard = new PlayerHand();
+        private static PlayerHand straightHand = new PlayerHand();
+        private static PlayerHand flushHand = new PlayerHand();
+        private static PlayerHand royalFlushHand = new PlayerHand();
+        private static PlayerHand straightFlushHand = new PlayerHand();
+
         //Use ClassInitialize to run code before running the first test  in the class
-        [ClassInitialize()] // tried with and without the parens - not being run
+        [ClassInitialize] // tried with and without the parens - not being run
         public static void HandEvaluatorTestsInitialize(TestContext testContext) { 
             
             // A basic hand used for tests that don't require a special hand
-            PlayerHand basicHand = new PlayerHand();
             basicHand.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
             basicHand.Cards.Add(new Card(Rank.Eight, Suit.Clubs));
             basicHand.Cards.Add(new Card(Rank.Jack, Suit.Hearts));
             basicHand.Cards.Add(new Card(Rank.Nine, Suit.Spades));
             basicHand.Cards.Add(new Card(Rank.Two, Suit.Clubs));
-            string basicHandStringSorted = "{2C,8C,9S,JH,AD}";
             
-            PlayerHand aceOfDiamondHighCard = new PlayerHand();
             aceOfDiamondHighCard.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
             aceOfDiamondHighCard.Cards.Add(new Card(Rank.Eight, Suit.Clubs));
             aceOfDiamondHighCard.Cards.Add(new Card(Rank.Jack, Suit.Hearts));
             aceOfDiamondHighCard.Cards.Add(new Card(Rank.Nine, Suit.Spades));
             aceOfDiamondHighCard.Cards.Add(new Card(Rank.Two, Suit.Clubs));
             
-            PlayerHand straightHand = new PlayerHand();
             straightHand.Cards.Add(new Card(Rank.Three, Suit.Diamonds));
             straightHand.Cards.Add(new Card(Rank.Six, Suit.Diamonds));
             straightHand.Cards.Add(new Card(Rank.Five, Suit.Diamonds));
             straightHand.Cards.Add(new Card(Rank.Four, Suit.Diamonds));
             straightHand.Cards.Add(new Card(Rank.Two, Suit.Diamonds));
             
-            PlayerHand flushHand = new PlayerHand();
             flushHand.Cards.Add(new Card(Rank.Ace, Suit.Diamonds));
             flushHand.Cards.Add(new Card(Rank.Eight, Suit.Diamonds));
             flushHand.Cards.Add(new Card(Rank.Jack, Suit.Diamonds));
             flushHand.Cards.Add(new Card(Rank.Nine, Suit.Diamonds));
             flushHand.Cards.Add(new Card(Rank.Two, Suit.Diamonds));
             
-            PlayerHand royalFlushHand = new PlayerHand();
             royalFlushHand.Cards.Add(new Card(Rank.Ace, Suit.Clubs));
             royalFlushHand.Cards.Add(new Card(Rank.Ten, Suit.Clubs));
             royalFlushHand.Cards.Add(new Card(Rank.Queen, Suit.Clubs));
             royalFlushHand.Cards.Add(new Card(Rank.Jack, Suit.Clubs));
             royalFlushHand.Cards.Add(new Card(Rank.King, Suit.Clubs));
             
-            PlayerHand straightFlushHand = new PlayerHand();
             straightFlushHand.Cards.Add(new Card(Rank.Five, Suit.Hearts));
             straightFlushHand.Cards.Add(new Card(Rank.Four, Suit.Hearts));
             straightFlushHand.Cards.Add(new Card(Rank.Two, Suit.Hearts));
@@ -59,8 +60,9 @@ namespace PokerHandsTests
         }
         //
         // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
+        [ClassCleanup]
+        public static void MyClassCleanup() { }
+
         //
         // Use TestInitialize to run code before running each test 
         // [TestInitialize()]
@@ -73,7 +75,7 @@ namespace PokerHandsTests
         [TestMethod]
         public void CanSortCardsByRank()
         {  
-            Assert.AreEqual(basicHandStringSorted, HandEvaluator.SortByRank(player1).ToString());
+            Assert.AreEqual(basicHandStringSorted, HandEvaluator.SortByRank(basicHand).ToString());
         }
         [TestMethod]
 

@@ -39,20 +39,19 @@ namespace PokerHands
         }
         
 
-        // returns true if sorted successfully 
-        public static bool SortByRank(PlayerHand playerHand)
+        // returns a sorted copy of the hand passed in 
+        public static PlayerHand SortByRank(PlayerHand playerHand)
         {
             // I need the rank here -- something's off with the way I've set up Card
             // I need to set it up as a List<>
-            playerHand.Cards.Sort(CompareCards);
-
-            return true;
+            PlayerHand sorted = new PlayerHand(playerHand.Cards);
+            sorted.Cards.Sort(CompareCards);
+            return sorted;
         }
 
         // returns the number of matching cards
         public static Dictionary<Rank, int> CountRanks(PlayerHand playerHand)
         {
-            
             for (int i = 0; i < playerHand.Cards.Count; i++)
             {
                 Rank cardRank = playerHand.Cards[i].Rank;
