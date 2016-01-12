@@ -100,9 +100,21 @@ namespace PokerHandsTests
         }
 
         [TestMethod]
+        public void CanDetermineIfHandIsNotAStraight()
+        {
+            Assert.IsFalse(HandEvaluator.Straight(basicHand));
+        }
+
+        [TestMethod]
         public void CanDetermineIfHandIsAStraight()
         {
             Assert.IsTrue(HandEvaluator.Straight(straightHand));
+        }
+
+        [TestMethod]
+        public void CanDetermineIfHandIsNotARoyalFlush()
+        {
+            Assert.IsFalse(HandEvaluator.RoyalFlush(straightHand));
         }
 
         [TestMethod]
@@ -111,6 +123,12 @@ namespace PokerHandsTests
             // test with this sort removed - this really should be in the evaluator, not the test
             //HandEvaluator.SortByRank(royalFlushHand);
             Assert.IsTrue(HandEvaluator.RoyalFlush(royalFlushHand));
+        }
+
+        [TestMethod]
+        public void CanDeterminIfHandIsNotAStraightFlush()
+        {
+            Assert.IsFalse(HandEvaluator.StraightFlush(basicHand));
         }
 
         [TestMethod]
