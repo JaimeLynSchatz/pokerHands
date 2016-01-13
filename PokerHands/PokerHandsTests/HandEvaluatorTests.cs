@@ -156,5 +156,34 @@ namespace PokerHandsTests
             Assert.IsTrue(actualRanks.ContainsKey(Rank.Ace) && actualRanks.ContainsValue(2));
             // need a better way to evaluate what's coming out of CountRanks
         }
+
+        [TestMethod]
+        public void LambdaFun()
+        {
+            var evaluators = new Func<PlayerHand, uint>[] {
+                (PlayerHand hand) =>
+                {
+                    return 10;
+                }
+            };
+
+            var result = 0;
+            foreach (var e in evaluators)
+            {
+                result = e(playerHand);
+                if (result > 0)
+                    break;
+            }
+
+            if (result >100)
+            {
+                //
+            }
+            else
+            {
+                //
+            }
+
+        }
     }
 }
