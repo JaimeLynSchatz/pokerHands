@@ -15,7 +15,7 @@ namespace PokerHandsTests
     {
         public complextesttoreview()
         {
-            //
+            
             // TODO: Add constructor logic here
             //
         }
