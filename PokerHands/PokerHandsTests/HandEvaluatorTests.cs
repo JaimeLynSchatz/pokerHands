@@ -160,6 +160,19 @@ namespace PokerHandsTests
         [TestMethod]
         public void LambdaFun()
         {
+            // this is so close to my grasp
+            // just not quite there
+            // from https://social.msdn.microsoft.com/Forums/en-US/2c08a0d0-58e4-4df6-b6d3-75e785fff8a8/array-of-function-pointers?forum=csharplanguage
+
+            Func<bool>[] evaluators = { RoyalFlush, StraightFlush, FourOfAKind, FullHouse, Flush, Straight, ThreeOfAKind, TwoPair, OnePair, HighCard }
+
+                foreach (var e in evaluators) {
+                    if ( something here - error? )
+                    {
+                    break;
+                    }
+                }
+
             var evaluators = new Func<PlayerHand, uint>[] {
                 (PlayerHand hand) =>
                 {
@@ -168,7 +181,7 @@ namespace PokerHandsTests
             };
 
             var result = 0;
-            foreach (var e in evaluators)
+            foreach (var e in evaluators) 
             {
                 result = e(playerHand);
                 if (result > 0)
