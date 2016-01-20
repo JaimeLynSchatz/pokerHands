@@ -214,7 +214,6 @@ namespace PokerHands
         // 9 One Pair: Two cards of the same value.
         public static bool OnePair(PlayerHand playerHand)
         {
-            // returns true if there is one pair -- I'd like to perhaps capture where the pair is ... maybe in two pair...
             SortByRank(playerHand); // TODO - bring this up to the top DRY DRY DRY
 
             if (rankCount.ContainsValue(2))
